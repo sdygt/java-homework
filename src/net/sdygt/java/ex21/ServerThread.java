@@ -16,10 +16,12 @@ public class ServerThread extends Thread {
         super();
         this.socket = socket;
         this.clients = clients;
+        Log.debug("New ServerThread Instance created: " + this);
     }
 
 
     public void run() {
+        Log.debug(this + " is running");
         try {
             BufferedReader buf_reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             File file = new File("D:/java.log");
@@ -40,11 +42,13 @@ public class ServerThread extends Thread {
                 for (Socket socket : clients) {
                     try {
                         BufferedWriter buf_writer_sock = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                        Log.debug("Writing to " + socket);
                         buf_writer_sock.write(writeOut);
                         buf_writer_sock.flush();
                     } catch (SocketException e) {
+                        Log.debug("Removing closed socket " + socket);
                         clients.remove(socket);
-                        Log.debug("Removed closed socket " + socket);
+
                     }
                 }
             }

@@ -16,7 +16,7 @@ class Log {
         strBuilder.append(dateFormat.format(new Date()));
         switch (level) {
             case ERROR:
-                strBuilder.append(" [ERR ] ");
+                strBuilder.append(" [ERR!] ");
                 break;
             case WARNING:
                 strBuilder.append(" [WARN] ");
@@ -29,7 +29,7 @@ class Log {
                 break;
             case DEBUG:
                 if (verbose) {
-                    strBuilder.append(" [DBG ] ");
+                    strBuilder.append(" [DBG.] ");
                 } else {
                     return;
                 }

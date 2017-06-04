@@ -3,7 +3,8 @@ package net.sdygt.java.ex21;
 import org.apache.commons.cli.*;
 
 public class Main {
-    public static boolean verbose = false;
+    static boolean verbose = false;
+
     public static void main(String[] args) {
         CommandLineParser parser = new DefaultParser();
         Options options = new Options();

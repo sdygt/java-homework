@@ -17,6 +17,7 @@ class Server {
             while (true) {
                 Socket sock = srvsock.accept();
                 Log.notice("New client connected: " + sock.getInetAddress().getHostName());
+                Log.debug("Adding socket to clients list: " + sock);
                 clients.add(sock);
                 new ServerThread(sock, clients).start();
             }
