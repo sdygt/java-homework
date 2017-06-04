@@ -1,4 +1,4 @@
-package net.sdygt.java.Ch2;
+package net.sdygt.java.ex11;
 
 class Student extends Person {
 
